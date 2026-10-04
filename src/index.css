@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&family=Sora:wght@500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #f3f7f5;
+  --color-brand-100: #e2ebe6;
+  --color-brand-200: #c5d7cc;
+  --color-brand-300: #9bb8a8;
+  --color-brand-400: #6d947e;
+  --color-brand-500: #4d7760;
+  --color-brand-600: #3a5f4b;
+  --color-brand-700: #2f4c3d;
+  --color-brand-800: #283e34;
+  --color-brand-900: #22342c;
+  --color-brand-950: #121c18;
+
+  --color-spice-50: #fdf6f1;
+  --color-spice-100: #fbeade;
+  --color-spice-200: #f6d2bc;
+  --color-spice-300: #efb291;
+  --color-spice-400: #e68a5f;
+  --color-spice-500: #de6b3c;
+  --color-spice-600: #cf532f;
+  --color-spice-700: #ac4028;
+  --color-spice-800: #8a3625;
+  --color-spice-900: #702f22;
+  --color-spice-950: #3c1510;
+
+  --color-ink-50: #f6f7f7;
+  --color-ink-100: #e2e5e4;
+  --color-ink-200: #c5cbc9;
+  --color-ink-300: #9fa9a6;
+  --color-ink-400: #7a8682;
+  --color-ink-500: #5f6b67;
+  --color-ink-600: #4b5552;
+  --color-ink-700: #3e4643;
+  --color-ink-800: #353b39;
+  --color-ink-900: #2e3331;
+  --color-ink-950: #1a1e1c;
+
+  --color-surface: #f7f9f6;
+  --color-surface-warm: #faf6f2;
+  --color-surface-cool: #f4f6f8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply overflow-x-clip bg-surface font-body text-ink-800 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink-950;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24;
+  }
+
+  .container-narrow {
+    @apply mx-auto w-full max-w-6xl;
+  }
+}
