@@ -4,10 +4,10 @@ export const siteConfig = {
   description:
     'Wardeng melayani kebutuhan retail harian, kuliner hangat, dan jasa digital — web, mobile, dan IoT — untuk komunitas lokal.',
   heroImage:
-    '/Hero.jpg',
+    '/Hero.webp',
   heroImageAlt: 'Interior toko modern dengan rak produk dan suasana ramah pelanggan',
   mapEmbedUrl:
-    '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.561419363914!2d107.72956567032301!3d-6.9495244727206655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c351c4a626bf%3A0x68d0884329cf662d!2sWARDENG!5e0!3m2!1sen!2sid!4v1790926927997!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d773.543249708404!2d107.72798801281728!3d-6.94912343771588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c351c4a626bf%3A0x68d0884329cf662d!2sWARDENG!5e0!3m2!1sid!2sid!4v1791113945955!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin',
   address: {
     lines: ['Jl. Mitra Lestari XV', 'Cinunuk, Cileunyi', 'Kabupaten Bandung, Jawa Barat 40624, Indonesia'],
   },
@@ -15,8 +15,8 @@ export const siteConfig = {
     { days: 'Senin – Minggu', time: '08.00 – 22.00' },
   ],
   contact: {
-    phone: '+62 812-3456-7890',
-    whatsapp: '+62 812-3456-7890',
+    phone: '+62 851-0238-1011',
+    whatsapp: '+62 851-0238-1011',
     email: 'halo@wardeng.id',
   },
   productionUrl: import.meta.env.VITE_SITE_URL as string | undefined,

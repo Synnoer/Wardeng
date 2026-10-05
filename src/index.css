@@ -1,49 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&family=Sora:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Archivo Black', ui-sans-serif, system-ui, sans-serif;
+  --font-ui: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Barlow', ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-50: #f3f7f5;
-  --color-brand-100: #e2ebe6;
-  --color-brand-200: #c5d7cc;
-  --color-brand-300: #9bb8a8;
-  --color-brand-400: #6d947e;
-  --color-brand-500: #4d7760;
-  --color-brand-600: #3a5f4b;
-  --color-brand-700: #2f4c3d;
-  --color-brand-800: #283e34;
-  --color-brand-900: #22342c;
-  --color-brand-950: #121c18;
+  /* Warm blue Persona palette */
+  --color-night-950: #030814;
+  --color-night-900: #06102a;
+  --color-night-800: #0a1a42;
+  --color-night-700: #10265c;
+  --color-night-600: #17357a;
 
-  --color-spice-50: #fdf6f1;
-  --color-spice-100: #fbeade;
-  --color-spice-200: #f6d2bc;
-  --color-spice-300: #efb291;
-  --color-spice-400: #e68a5f;
-  --color-spice-500: #de6b3c;
-  --color-spice-600: #cf532f;
-  --color-spice-700: #ac4028;
-  --color-spice-800: #8a3625;
-  --color-spice-900: #702f22;
-  --color-spice-950: #3c1510;
+  --color-cobalt-500: #0b57ff;
+  --color-cobalt-400: #2b75ff;
+  --color-cobalt-300: #5b96ff;
 
-  --color-ink-50: #f6f7f7;
-  --color-ink-100: #e2e5e4;
-  --color-ink-200: #c5cbc9;
-  --color-ink-300: #9fa9a6;
-  --color-ink-400: #7a8682;
-  --color-ink-500: #5f6b67;
-  --color-ink-600: #4b5552;
-  --color-ink-700: #3e4643;
-  --color-ink-800: #353b39;
-  --color-ink-900: #2e3331;
-  --color-ink-950: #1a1e1c;
+  --color-cyan-400: #00e5ff;
+  --color-cyan-300: #5cefff;
+  --color-cyan-200: #a8f6ff;
 
-  --color-surface: #f7f9f6;
-  --color-surface-warm: #faf6f2;
-  --color-surface-cool: #f4f6f8;
+  --color-hot-500: #ff2d78;
+  --color-hot-400: #ff5c96;
+  --color-spark-400: #ffe566;
+  --color-alert-400: #ff4d4d;
+
+  --color-mist-100: #e8f4ff;
+  --color-mist-200: #c5ddf7;
+  --color-mist-300: #8eb4d9;
+  --color-mist-400: #5f87ad;
+  --color-panel: #0d1f4a;
+  --color-panel-deep: #081633;
 }
 
 @layer base {
@@ -71,27 +59,145 @@
   }
 
   body {
-    @apply overflow-x-clip bg-surface font-body text-ink-800 antialiased;
+    @apply overflow-x-clip bg-night-950 font-body text-mist-100 antialiased;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    @apply font-display text-ink-950;
+    @apply font-display text-white;
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-600;
+    @apply outline-2 outline-offset-2 outline-cyan-400;
   }
 }
 
-@layer utilities {
+@layer components {
   .section-padding {
-    @apply px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24;
+    @apply relative px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24;
   }
 
   .container-narrow {
-    @apply mx-auto w-full max-w-6xl;
+    @apply relative z-10 mx-auto w-full max-w-6xl;
   }
+
+  .shard-bg {
+    background-color: var(--color-night-900);
+    background-image:
+      linear-gradient(115deg, transparent 0%, transparent 42%, rgb(11 87 255 / 0.18) 42.2%, rgb(11 87 255 / 0.18) 58%, transparent 58.2%),
+      linear-gradient(155deg, rgb(0 229 255 / 0.06) 0%, transparent 35%),
+      linear-gradient(25deg, rgb(255 45 120 / 0.05) 0%, transparent 40%),
+      radial-gradient(ellipse at 80% 10%, rgb(0 229 255 / 0.12), transparent 45%),
+      radial-gradient(ellipse at 10% 90%, rgb(11 87 255 / 0.2), transparent 50%);
+  }
+
+  .shard-bg-alt {
+    background-color: var(--color-night-950);
+    background-image:
+      linear-gradient(105deg, transparent 0%, transparent 55%, rgb(23 53 122 / 0.55) 55.2%, rgb(23 53 122 / 0.55) 72%, transparent 72.2%),
+      linear-gradient(-20deg, rgb(0 229 255 / 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgb(11 87 255 / 0.25), transparent 40%);
+  }
+
+  .watermark {
+    @apply pointer-events-none absolute select-none font-display uppercase leading-none text-white/[0.04];
+  }
+
+  .slash-label {
+    @apply inline-flex items-center bg-gradient-to-r from-cobalt-500 via-cobalt-400 to-transparent px-4 py-1.5 font-ui text-sm font-bold uppercase italic tracking-[0.2em] text-white;
+    clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+  }
+
+  .btn-persona {
+    @apply relative inline-flex items-center justify-center gap-2 bg-cobalt-500 px-7 py-3.5 font-ui text-lg font-bold uppercase italic tracking-wide text-white transition duration-200;
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+    box-shadow: 0 0 24px rgb(0 229 255 / 0.25);
+  }
+
+  .btn-persona:hover {
+    @apply bg-cyan-400 text-night-950;
+    box-shadow: 0 0 32px rgb(0 229 255 / 0.45);
+    transform: translateX(4px);
+  }
+
+  .btn-persona-ghost {
+    @apply relative inline-flex items-center justify-center gap-2 border-2 border-cyan-400/70 bg-night-900/50 px-7 py-3.5 font-ui text-lg font-bold uppercase italic tracking-wide text-cyan-300 backdrop-blur-sm transition duration-200;
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  }
+
+  .btn-persona-ghost:hover {
+    @apply border-white bg-white text-night-950;
+    transform: translateX(4px);
+  }
+
+  .panel-persona {
+    @apply relative border-2 border-cobalt-400/40 bg-panel/80 backdrop-blur-sm transition duration-200;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+  }
+
+  .panel-persona:hover {
+    @apply border-cyan-400;
+    box-shadow: 0 0 28px rgb(0 229 255 / 0.18);
+  }
+
+  .list-persona {
+    @apply relative border border-white/10 bg-night-900/70 transition duration-150;
+    clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  }
+
+  .list-persona:hover,
+  .list-persona:focus-within {
+    @apply border-cyan-400 bg-white text-night-950;
+    box-shadow: inset 0 0 0 2px var(--color-cobalt-500);
+  }
+
+  .nav-chip {
+    @apply relative px-3 py-1.5 font-ui text-sm font-bold uppercase italic tracking-wider text-mist-200 transition;
+  }
+
+  .nav-chip:hover {
+    @apply bg-cobalt-500 text-white;
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+  }
+
+  .input-persona {
+    @apply w-full border-2 border-cobalt-400/30 bg-night-950/80 px-4 py-3 font-body text-white transition placeholder:text-mist-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  }
+
+  .section-edge {
+    @apply pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-r from-cyan-400 via-cobalt-500 to-hot-500 opacity-80;
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgb(0 229 255 / 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgb(0 229 255 / 0.8));
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in-right 0.55s ease-out both;
+}
+
+.animate-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }

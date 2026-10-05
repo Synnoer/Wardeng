@@ -1,30 +1,28 @@
 import { services } from '../data/services'
+import { SectionHeader } from './SectionHeader'
 import { ServiceCard } from './ServiceCard'
 
 export function Services() {
   return (
     <section
       id="layanan"
-      className="section-padding bg-brand-50/60"
+      className="section-padding shard-bg"
       aria-labelledby="services-heading"
     >
+      <div className="section-edge" aria-hidden />
       <div className="container-narrow">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-600">
-            Retail Services
-          </p>
-          <h2 id="services-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            Layanan Harian yang Siap Membantu
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">
-            Dari tarik tunai hingga kebutuhan rumah tangga — semua tersedia di Wardeng.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Retail Services"
+          title="Layanan Harian yang Siap Membantu"
+          titleId="services-heading"
+          description="Dari tarik tunai hingga kebutuhan rumah tangga — semua tersedia di Wardeng."
+          watermark="SERVICE"
+        />
 
         <ul className="mt-12 grid list-none grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <li key={service.id}>
-              <ServiceCard service={service} />
+              <ServiceCard service={service} index={index} />
             </li>
           ))}
         </ul>

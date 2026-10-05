@@ -1,25 +1,26 @@
 import { menuItems } from '../data/menu'
 import { FoodCard } from './FoodCard'
+import { SectionHeader } from './SectionHeader'
 
 export function FnB() {
   return (
     <section
       id="fnb"
-      className="section-padding bg-surface-warm"
+      className="section-padding shard-bg-alt"
       aria-labelledby="fnb-heading"
     >
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-hot-500 via-spark-400 to-cyan-400"
+        aria-hidden
+      />
       <div className="container-narrow">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-spice-600">
-            Warkop
-          </p>
-          <h2 id="fnb-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            Kuliner Hangat untuk Setiap Saat
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">
-            Menu sederhana dan familiar — siap menemani aktivitas harian Anda.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Food & Beverage"
+          title="Warkop Deng"
+          titleId="fnb-heading"
+          description="Murah meriah"
+          watermark="MENU"
+        />
 
         <ul className="mt-12 grid list-none grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {menuItems.map((item) => (

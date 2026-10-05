@@ -12,7 +12,7 @@ function App() {
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-brand-800 focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:border-2 focus:border-cyan-400 focus:bg-night-900 focus:px-4 focus:py-2 focus:font-ui focus:text-sm focus:font-bold focus:uppercase focus:italic focus:text-cyan-300 focus:shadow-lg"
       >
         Loncat ke konten utama
       </a>

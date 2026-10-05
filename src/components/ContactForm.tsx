@@ -1,5 +1,6 @@
 import { AlertCircle, CheckCircle2, LoaderCircle, Send } from 'lucide-react'
 import { type ChangeEvent, type FormEvent, useId, useState } from 'react'
+import { SectionHeader } from './SectionHeader'
 
 const categories = [
   'Retail',
@@ -127,39 +128,45 @@ export function ContactForm() {
   return (
     <section
       id="kontak"
-      className="section-padding bg-brand-50/70"
+      className="section-padding shard-bg"
       aria-labelledby="contact-heading"
     >
+      <div className="section-edge" aria-hidden />
+      <span className="watermark right-0 top-8 text-[clamp(4rem,18vw,10rem)]" aria-hidden>
+        MAIL
+      </span>
       <div className="container-narrow">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-600">
-            Kontak
-          </p>
-          <h2 id="contact-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            Hubungi Kami
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">
-            Tanya layanan retail, FnB, atau proyek digital — kami siap membantu.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Kontak"
+          title="Hubungi Kami"
+          titleId="contact-heading"
+          description="Tanya layanan retail, FnB, atau proyek digital — kami siap membantu."
+          watermark="CONTACT"
+          align="center"
+        />
 
-        <div className="mx-auto mt-12 max-w-2xl rounded-2xl border border-brand-100 bg-white p-6 shadow-sm sm:p-8">
+        <div className="relative mx-auto mt-12 max-w-2xl border-2 border-cyan-400/40 bg-panel/90 p-6 shadow-[12px_12px_0_0_rgb(11_87_255)] sm:p-8">
+          <div
+            className="absolute -left-1 -top-3 bg-hot-500 px-4 py-1 font-ui text-xs font-bold uppercase italic tracking-[0.25em] text-white"
+            aria-hidden
+          >
+            Today&apos;s Message
+          </div>
+
           {status === 'success' ? (
             <div
-              className="flex flex-col items-center gap-3 rounded-xl bg-brand-50 px-6 py-10 text-center"
+              className="flex flex-col items-center gap-3 bg-night-950/60 px-6 py-10 text-center"
               role="status"
               aria-live="polite"
             >
-              <CheckCircle2 className="size-10 text-brand-600" aria-hidden />
-              <h3 className="text-xl font-semibold text-ink-950">Pesan terkirim</h3>
-              <p className="max-w-md text-ink-600">
+              <CheckCircle2 className="size-10 text-cyan-400" aria-hidden />
+              <h3 className="font-ui text-2xl font-bold uppercase italic text-white">
+                Pesan terkirim
+              </h3>
+              <p className="max-w-md text-mist-300">
                 Terima kasih. Tim Wardeng akan menghubungi Anda segera.
               </p>
-              <button
-                type="button"
-                className="mt-2 rounded-xl bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-600"
-                onClick={() => setStatus('idle')}
-              >
+              <button type="button" className="btn-persona mt-2" onClick={() => setStatus('idle')}>
                 Kirim pesan lain
               </button>
             </div>
@@ -167,8 +174,11 @@ export function ContactForm() {
             <form onSubmit={handleSubmit} noValidate className="space-y-5">
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor={`${formId}-name`} className="mb-1.5 block text-sm font-semibold text-ink-800">
-                    Nama <span className="text-spice-600">*</span>
+                  <label
+                    htmlFor={`${formId}-name`}
+                    className="mb-1.5 block font-ui text-sm font-bold uppercase tracking-wider text-cyan-300"
+                  >
+                    Nama <span className="text-hot-500">*</span>
                   </label>
                   <input
                     id={`${formId}-name`}
@@ -179,19 +189,22 @@ export function ContactForm() {
                     onChange={handleChange}
                     aria-invalid={Boolean(errors.name)}
                     aria-describedby={errors.name ? `${formId}-name-error` : undefined}
-                    className="w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-ink-900 transition placeholder:text-ink-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
+                    className="input-persona"
                     placeholder="Nama lengkap"
                   />
                   {errors.name ? (
-                    <p id={`${formId}-name-error`} className="mt-1.5 text-sm text-spice-700" role="alert">
+                    <p id={`${formId}-name-error`} className="mt-1.5 text-sm text-hot-400" role="alert">
                       {errors.name}
                     </p>
                   ) : null}
                 </div>
 
                 <div>
-                  <label htmlFor={`${formId}-email`} className="mb-1.5 block text-sm font-semibold text-ink-800">
-                    Email <span className="text-spice-600">*</span>
+                  <label
+                    htmlFor={`${formId}-email`}
+                    className="mb-1.5 block font-ui text-sm font-bold uppercase tracking-wider text-cyan-300"
+                  >
+                    Email <span className="text-hot-500">*</span>
                   </label>
                   <input
                     id={`${formId}-email`}
@@ -202,11 +215,11 @@ export function ContactForm() {
                     onChange={handleChange}
                     aria-invalid={Boolean(errors.email)}
                     aria-describedby={errors.email ? `${formId}-email-error` : undefined}
-                    className="w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-ink-900 transition placeholder:text-ink-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
+                    className="input-persona"
                     placeholder="nama@email.com"
                   />
                   {errors.email ? (
-                    <p id={`${formId}-email-error`} className="mt-1.5 text-sm text-spice-700" role="alert">
+                    <p id={`${formId}-email-error`} className="mt-1.5 text-sm text-hot-400" role="alert">
                       {errors.email}
                     </p>
                   ) : null}
@@ -215,7 +228,10 @@ export function ContactForm() {
 
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor={`${formId}-whatsapp`} className="mb-1.5 block text-sm font-semibold text-ink-800">
+                  <label
+                    htmlFor={`${formId}-whatsapp`}
+                    className="mb-1.5 block font-ui text-sm font-bold uppercase tracking-wider text-cyan-300"
+                  >
                     WhatsApp
                   </label>
                   <input
@@ -225,13 +241,16 @@ export function ContactForm() {
                     autoComplete="tel"
                     value={values.whatsapp}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-ink-900 transition placeholder:text-ink-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
+                    className="input-persona"
                     placeholder="08xxxxxxxxxx"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor={`${formId}-category`} className="mb-1.5 block text-sm font-semibold text-ink-800">
+                  <label
+                    htmlFor={`${formId}-category`}
+                    className="mb-1.5 block font-ui text-sm font-bold uppercase tracking-wider text-cyan-300"
+                  >
                     Kategori
                   </label>
                   <select
@@ -239,7 +258,7 @@ export function ContactForm() {
                     name="category"
                     value={values.category}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-ink-900 transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
+                    className="input-persona"
                   >
                     <option value="">Pilih kategori</option>
                     {categories.map((category) => (
@@ -252,8 +271,11 @@ export function ContactForm() {
               </div>
 
               <div>
-                <label htmlFor={`${formId}-message`} className="mb-1.5 block text-sm font-semibold text-ink-800">
-                  Pesan <span className="text-spice-600">*</span>
+                <label
+                  htmlFor={`${formId}-message`}
+                  className="mb-1.5 block font-ui text-sm font-bold uppercase tracking-wider text-cyan-300"
+                >
+                  Pesan <span className="text-hot-500">*</span>
                 </label>
                 <textarea
                   id={`${formId}-message`}
@@ -263,11 +285,11 @@ export function ContactForm() {
                   onChange={handleChange}
                   aria-invalid={Boolean(errors.message)}
                   aria-describedby={errors.message ? `${formId}-message-error` : undefined}
-                  className="w-full resize-y rounded-xl border border-ink-200 bg-white px-4 py-3 text-ink-900 transition placeholder:text-ink-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
+                  className="input-persona resize-y"
                   placeholder="Ceritakan kebutuhan Anda..."
                 />
                 {errors.message ? (
-                  <p id={`${formId}-message-error`} className="mt-1.5 text-sm text-spice-700" role="alert">
+                  <p id={`${formId}-message-error`} className="mt-1.5 text-sm text-hot-400" role="alert">
                     {errors.message}
                   </p>
                 ) : null}
@@ -275,10 +297,10 @@ export function ContactForm() {
 
               {status === 'error' ? (
                 <div
-                  className="flex items-start gap-3 rounded-xl border border-spice-200 bg-spice-50 px-4 py-3 text-sm text-spice-800"
+                  className="flex items-start gap-3 border-2 border-alert-400 bg-alert-400/10 px-4 py-3 text-sm text-mist-100"
                   role="alert"
                 >
-                  <AlertCircle className="mt-0.5 size-5 shrink-0" aria-hidden />
+                  <AlertCircle className="mt-0.5 size-5 shrink-0 text-alert-400" aria-hidden />
                   <p>{errorMessage}</p>
                 </div>
               ) : null}
@@ -286,7 +308,7 @@ export function ContactForm() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-700 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-brand-600 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                className="btn-persona w-full disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
               >
                 {status === 'submitting' ? (
                   <>

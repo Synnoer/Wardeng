@@ -5,23 +5,31 @@ const copyrightYear = new Date().getFullYear()
 
 export function Footer() {
   return (
-    <footer className="border-t border-brand-900/20 bg-brand-950 text-brand-100">
+    <footer className="relative overflow-hidden border-t-4 border-cyan-400 bg-night-950 text-mist-200">
+      <span className="watermark -bottom-6 left-0 text-[clamp(5rem,18vw,11rem)]" aria-hidden>
+        SYSTEM
+      </span>
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-cobalt-500/20 to-transparent"
+        aria-hidden
+      />
       <div className="container-narrow section-padding !pb-10 !pt-14">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <a
               href="#home"
-              className="font-display text-2xl font-bold text-white transition hover:text-spice-300"
+              className="font-display text-3xl uppercase italic text-white transition hover:text-cyan-400"
             >
-              {siteConfig.name}
+              <span className="text-cyan-400">W</span>
+              {siteConfig.name.slice(1)}
             </a>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-200">
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-mist-300">
               {siteConfig.description}
             </p>
           </div>
 
           <div>
-            <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white">
+            <h2 className="font-ui text-sm font-bold uppercase italic tracking-[0.2em] text-cyan-400">
               Navigasi
             </h2>
             <ul className="mt-4 space-y-2">
@@ -29,7 +37,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-brand-200 transition hover:text-white"
+                    className="font-ui text-base font-semibold uppercase italic tracking-wide text-mist-200 transition hover:text-hot-500"
                   >
                     {link.label}
                   </a>
@@ -39,16 +47,16 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white">
+            <h2 className="font-ui text-sm font-bold uppercase italic tracking-[0.2em] text-cyan-400">
               Kontak
             </h2>
-            <ul className="mt-4 space-y-3 text-sm text-brand-200">
+            <ul className="mt-4 space-y-3 text-sm text-mist-300">
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`}
                   className="inline-flex items-center gap-2 transition hover:text-white"
                 >
-                  <Phone className="size-4 shrink-0" aria-hidden />
+                  <Phone className="size-4 shrink-0 text-cyan-400" aria-hidden />
                   {siteConfig.contact.phone}
                 </a>
               </li>
@@ -57,7 +65,7 @@ export function Footer() {
                   href={`mailto:${siteConfig.contact.email}`}
                   className="inline-flex items-center gap-2 transition hover:text-white"
                 >
-                  <Mail className="size-4 shrink-0" aria-hidden />
+                  <Mail className="size-4 shrink-0 text-cyan-400" aria-hidden />
                   {siteConfig.contact.email}
                 </a>
               </li>
@@ -68,7 +76,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-center text-sm text-brand-300 sm:text-left">
+        <div className="mt-12 border-t border-cyan-400/20 pt-6 text-center font-ui text-sm font-semibold uppercase tracking-[0.15em] text-mist-400 sm:text-left">
           <p>
             © {copyrightYear} Synnoer. Hak cipta dilindungi.
           </p>

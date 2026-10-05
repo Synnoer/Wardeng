@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Wardeng">
-  <rect width="64" height="64" rx="14" fill="#2f4c3d"/>
-  <path d="M16 42 L24 18 L32 34 L40 18 L48 42" fill="none" stroke="#f6d2bc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="32" cy="46" r="3.5" fill="#de6b3c"/>
+  <rect width="64" height="64" fill="#030814"/>
+  <path d="M0 0 H64 L52 14 H0 Z" fill="#0b57ff"/>
+  <path d="M8 22 L20 48 L32 30 L44 48 L56 22" fill="none" stroke="#00e5ff" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+  <rect x="28" y="50" width="8" height="6" fill="#ff2d78"/>
 </svg>

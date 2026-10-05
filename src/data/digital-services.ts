@@ -16,7 +16,7 @@ export const digitalServices: DigitalService[] = [
     description:
       'Pembuatan website profesional untuk bisnis lokal, brand, dan layanan online Anda.',
     icon: Globe,
-    highlights: ['Company profile', 'Landing page', 'Sistem informasi ringan'],
+    highlights: ['Company profile', 'Sistem Manajemen', 'AI Integrated Systems'],
   },
   {
     id: 'mobile-development',
